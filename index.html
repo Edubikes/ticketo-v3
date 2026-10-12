@@ -1,0 +1,677 @@
+<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#faf9f6"><title>Ticketo · Facturas de caja chica por WhatsApp</title><link rel="canonical" href="https://ticketo.tech/"><meta property="og:url" content="https://ticketo.tech/"><meta property="og:title" content="Ticketo · Facturas de caja chica por WhatsApp"><meta property="og:description" content="Mandas foto del ticket, te regresa la factura. Plan Personal $900/mes o Empresa $2,000/mes con tickets ilimitados."><meta property="og:type" content="website"><meta name="description" content="Mandas foto del ticket, te regresa la factura. Plan Personal $900/mes o Empresa $2,000/mes con tickets ilimitados.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>(function(r){r.className="js";if(!matchMedia("(prefers-reduced-motion: reduce)").matches){r.classList.add("gs");setTimeout(function(){if(!window.__tk)r.classList.remove("gs")},4000)}})(document.documentElement)</script>
+<style>
+:root{--ink:#0e1013;--ink2:#2a2e35;--mut:#5b616b;--line:#e4e1da;--bg:#faf9f6;--card:#fff;--acc:#0f5132;--acc2:#e8f1ec;--ease:cubic-bezier(.2,.7,.2,1);--expo:cubic-bezier(.16,1,.3,1);--serif:Georgia,"Times New Roman",serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:clip}
+body{font-family:Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:clamp(16px,1.05vw + 12px,18px);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+::selection{background:var(--acc);color:#fff}
+.w{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.g12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,28px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* fondo: gradiente que deriva + grano (solo transform) */
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx i{position:absolute;width:80vmax;height:80vmax;border-radius:50%;will-change:transform;animation:drift 28s ease-in-out infinite alternate}
+.bgfx i:nth-child(1){left:-30vmax;top:-35vmax;background:radial-gradient(closest-side,rgba(15,81,50,.11),rgba(15,81,50,0))}
+.bgfx i:nth-child(2){right:-35vmax;top:10vh;background:radial-gradient(closest-side,rgba(196,150,70,.10),rgba(196,150,70,0));animation-duration:34s;animation-delay:-9s}
+.bgfx i:nth-child(3){left:10vw;bottom:-50vmax;background:radial-gradient(closest-side,rgba(15,81,50,.07),rgba(15,81,50,0));animation-duration:40s;animation-delay:-17s}
+.bgfx:after{content:"";position:absolute;inset:0;opacity:.05;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(8vmax,6vmax,0) scale(1.08)}100%{transform:translate3d(-4vmax,12vmax,0) scale(.96)}}
+.prog{position:fixed;left:0;top:0;right:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;z-index:70;pointer-events:none}
+
+/* header */
+header{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+header.sc{background:rgba(250,249,246,.82);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-color:var(--line)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:64px;gap:24px}
+.logo{font-weight:700;letter-spacing:-.04em;font-size:22px;text-decoration:none;min-height:44px;display:flex;align-items:center}.logo span{color:var(--acc);display:inline-block;transition:transform .5s var(--expo)}.logo:hover span{transform:translateY(-3px) rotate(-12deg)}
+nav{display:none;margin-left:auto;gap:30px}
+nav a{font-size:14.5px;color:var(--mut);text-decoration:none;transition:color .2s;padding:10px 0;position:relative}nav a:hover{color:var(--ink)}
+nav a:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:100% 50%;transition:transform .45s var(--expo)}nav a:hover:after{transform:scaleX(1);transform-origin:0 50%}
+@media(min-width:760px){nav{display:flex}}
+
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;background:var(--acc);color:#fff;text-decoration:none;padding:0 26px;border-radius:8px;font-weight:700;font-size:16px;letter-spacing:-.005em;border:1px solid var(--acc);transition:transform .18s var(--ease),background .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent}
+.btn>span{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px}
+.btn:after{content:"";position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.28),rgba(255,255,255,0));transform:translateX(-120%) skewX(-18deg);transition:transform .8s var(--expo);pointer-events:none}
+.btn:hover:after{transform:translateX(220%) skewX(-18deg)}
+.btn:hover{background:#0b3f27;box-shadow:0 2px 0 rgba(14,16,19,.12),0 12px 24px -12px rgba(15,81,50,.55);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px) scale(.985);box-shadow:none}
+.btn.sm{min-height:44px;padding:0 18px;font-size:14.5px}
+.btn.m-on{transition:background .2s,box-shadow .2s,color .2s}.btn.m-on:hover,.btn.m-on:active{transform:none}
+.btn .ar{width:16px;height:16px;transition:transform .45s var(--expo)}.btn:hover .ar{transform:translateX(3px)}
+.lnk{display:inline-flex;align-items:center;min-height:48px;gap:8px;font-weight:700;font-size:16px;color:var(--ink);text-decoration:none;padding:0 6px;position:relative}
+.lnk:after{content:"";position:absolute;left:6px;right:6px;bottom:10px;height:1.5px;background:var(--acc);transform:scaleX(.25);transform-origin:0 50%;transition:transform .5s var(--expo)}.lnk:hover:after{transform:scaleX(1)}
+
+/* type */
+h1,h2,h3{letter-spacing:-.035em;font-weight:700}
+h2{font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.04em;margin-bottom:clamp(32px,5vw,56px)}
+h3{letter-spacing:-.02em}
+.sl{padding-bottom:.06em;margin-bottom:-.06em}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:18px;display:block}
+.note{font-size:14px;color:var(--mut)}
+
+/* hero */
+.hero{padding:clamp(36px,6vw,88px) 0 clamp(48px,6vw,80px);align-items:center;row-gap:44px}
+.hero-t{grid-column:1/-1;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--acc);background:rgba(232,241,236,.85);border:1px solid rgba(15,81,50,.18);border-radius:99px;padding:7px 14px 7px 12px;margin-bottom:clamp(20px,2.4vw,28px)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--acc);position:relative}
+.badge i:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--acc);animation:ping 2.2s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(2.8);opacity:0}}
+.hero h1{font-size:clamp(40px,7.4vw,84px);line-height:.98;letter-spacing:-.05em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .ln>span{display:block}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .sub{font-size:clamp(17px,1.6vw,20px);color:var(--mut);max-width:34em;margin:clamp(20px,2.4vw,28px) 0 clamp(26px,3vw,36px)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.hero .note{margin-top:18px}
+.hero-d{grid-column:1/-1;min-width:0}
+@media(min-width:1000px){.hero-t{grid-column:1/6}.hero-d{grid-column:6/-1}.hero h1{font-size:clamp(48px,5.4vw,76px)}}
+@media(prefers-reduced-motion:no-preference){
+ .hero h1 .ln>span{animation:lnup 1.1s var(--expo) both}
+ .hero h1 .ln:nth-child(2)>span{animation-delay:.09s}
+ .hero .fx{animation:fxup .9s var(--expo) both;animation-delay:var(--d,.25s)}
+ .hero-d{animation:fxin 1.2s var(--expo) .15s both}
+}
+@keyframes lnup{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fxup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fxin{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+
+/* escena del hero (escala con el contenedor) */
+.scene{position:relative;container-type:inline-size}
+.scn{position:relative;font-size:13px;font-size:min(2.27cqw,15px);width:44em;max-width:100%;height:36em;margin:0 auto}
+@container (max-width:560px){.scn{font-size:3cqw;width:100%;height:37.5em}}
+.scn:before{content:"";position:absolute;left:30%;top:6%;width:62%;height:80%;border-radius:50%;background:radial-gradient(closest-side,rgba(15,81,50,.16),rgba(15,81,50,0));pointer-events:none}
+.ph{position:absolute;left:0;top:0;width:20em;background:var(--ink);border-radius:2.4em;padding:.55em;box-shadow:0 1px 0 rgba(14,16,19,.06),0 2.4em 3.6em -2em rgba(14,16,19,.45)}
+.ph-in{height:34.4em;background:#ece6dc;background-image:radial-gradient(rgba(14,16,19,.05) 1px,transparent 1.2px);background-size:1.1em 1.1em;border-radius:1.9em;overflow:hidden;display:flex;flex-direction:column}
+.ph-h{display:flex;align-items:center;gap:.7em;background:#0b4a41;color:#fff;padding:1.3em 1.1em .85em}
+.ph-h .av{flex:none;width:2.3em;height:2.3em;border-radius:50%;background:#e8f1ec;color:#0b4a41;display:grid;place-items:center;font-weight:700;font-size:.95em}
+.ph-h b{display:block;font-size:1.02em;line-height:1.2}.ph-h small{display:block;font-size:.78em;opacity:.78;line-height:1.3}
+.ph-b{flex:1;padding:.9em .85em;display:flex;flex-direction:column;justify-content:flex-end;gap:.5em;min-height:0;overflow:hidden}
+.cm{position:relative;background:#fff;border-radius:.25em .8em .8em .8em;padding:.5em .65em .45em;max-width:88%;font-size:1em;line-height:1.35;box-shadow:0 1px 0 rgba(0,0,0,.07);align-self:flex-start}
+.cm b.who{display:block;font-size:.84em;margin-bottom:.3em}
+.cm.me{align-self:flex-end;background:#d7f0cf;border-radius:.8em .25em .8em .8em}
+.cm .tm{display:block;text-align:right;font-size:.7em;color:#7c8189;margin-top:.2em;line-height:1}.cm .tm i{font-style:normal;color:#3aa3d8;letter-spacing:-.25em;margin-left:.3em}
+.cm .t{font-size:.92em}
+.c1{color:#b4400f}.c2{color:#1e4fc4}.c3{color:#6d28a8}
+.pic{width:11.6em;height:6.6em;border-radius:.45em;background:linear-gradient(135deg,#6d6152,#2f2a25 70%);position:relative;overflow:hidden;margin:.1em 0 .35em}
+.pic:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 40% 30%,rgba(255,255,255,.18),transparent)}
+.pic .mini{position:absolute;left:50%;top:9%;width:4.4em;height:7.4em;margin-left:-2.2em;transform:rotate(-7deg);background:#fbfaf7;padding:.55em .45em;display:flex;flex-direction:column;gap:.32em;box-shadow:0 .3em .6em rgba(0,0,0,.35)}
+.mini i{display:block;height:.16em;background:#c7c1b4}.mini i:nth-child(1){width:60%;margin:0 auto .2em;height:.24em;background:#8e887b}.mini i:nth-child(3){width:75%}.mini i:nth-child(5){width:55%}.mini i:nth-child(6){height:.26em;background:#8e887b;margin-top:.3em}
+.tkr{display:flex;gap:.6em;align-items:center}.tkr em{font-style:normal;color:var(--mut);font-size:.88em;display:block}.tkr strong{font-size:.98em}
+.rc{flex:0 0 2.6em;height:3.4em;background:#fbfaf7;border:1px solid #d6d1c6;border-radius:2px;padding:.42em .36em;display:flex;flex-direction:column;gap:.22em;transform:rotate(-2deg)}
+.rc i{display:block;height:2px;background:#c7c1b4}.rc i:nth-child(2){width:70%}.rc i:nth-child(3){width:85%}.rc i:nth-child(4){width:55%}.rc i:last-child{height:3px;background:#8e887b;margin-top:auto;width:60%}
+.files{display:flex;gap:.4em;margin-top:.45em}
+.fl{display:inline-flex;align-items:center;gap:.4em;background:rgba(255,255,255,.75);border:1px solid rgba(15,81,50,.15);border-radius:.45em;padding:.3em .5em;font-size:.8em;font-weight:700}
+.fl i{width:1.3em;height:1.6em;border-radius:.15em;position:relative;flex:none;background:#b4400f}.fl i:after{content:"";position:absolute;right:0;top:0;border:.28em solid;border-color:#fff #fff rgba(255,255,255,.55) rgba(255,255,255,.55)}
+.fl.x i{background:#1e4fc4}
+.typ{display:inline-flex;gap:.28em;padding:.75em .8em}.typ i{width:.45em;height:.45em;border-radius:50%;background:#9aa0a8;animation:typ 1.1s infinite ease-in-out}.typ i:nth-child(2){animation-delay:.15s}.typ i:nth-child(3){animation-delay:.3s}
+@keyframes typ{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-.3em);opacity:1}}
+.ph-f{display:flex;align-items:center;gap:.5em;padding:.6em .7em .9em}
+.ph-f span{flex:1;background:#fff;border-radius:2em;padding:.55em .9em;font-size:.86em;color:#8a8f96}
+.ph-f i{width:2.4em;height:2.4em;border-radius:50%;background:#0b4a41;flex:none;position:relative}
+.ph-f i:after{content:"";position:absolute;left:50%;top:50%;width:.9em;height:.7em;margin:-.35em 0 0 -.45em;border:.14em solid #fff;border-radius:.18em}
+
+/* ticket -> factura */
+.doc{position:absolute;right:0;top:3.6em;width:17.5em;height:23.5em;perspective:70em;filter:drop-shadow(0 1.4em 1.6em rgba(14,16,19,.22))}
+@container (max-width:560px){.doc{width:14.8em;height:21em;top:6.2em}}
+.tkt,.fac{position:absolute;inset:0;will-change:transform}
+.tkt{transform:translate(-2.4em,1.4em) rotate(-8deg)}
+.fac{transform:rotate(2deg)}
+.rcp{width:100%;height:100%;background:linear-gradient(180deg,#fffefb,#f2efe8);color:#3b3a36;font:500 .8em/1.5 var(--mono);padding:1.6em 1.4em 2.4em;display:flex;flex-direction:column;gap:.15em;-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/1.2em 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/1.2em 100%}
+.rcp .t-h{text-align:center;font-weight:700;font-size:1.2em;letter-spacing:.12em;color:#1d1c1a}
+.rcp .t-s{text-align:center;color:#77736a;font-size:.9em}
+.rcp hr{border:0;border-top:1px dashed #b9b4a8;margin:.6em 0}
+.rcp .t-r{display:flex;justify-content:space-between;gap:1em}
+.rcp .t-tot{font-weight:700;font-size:1.15em;color:#1d1c1a}
+.rcp .t-bar{display:block;height:3.2em;margin-top:auto;background:repeating-linear-gradient(90deg,#2a2926 0 2px,transparent 2px 4px,#2a2926 4px 5px,transparent 5px 8px,#2a2926 8px 11px,transparent 11px 12px)}
+.rcp .t-x{text-align:center;color:#77736a;font-size:.85em;margin-top:.5em}
+.fac{background:#fff;border:1px solid var(--line);border-radius:.8em;overflow:hidden;display:flex;flex-direction:column;font-size:1em}
+.f-top{background:var(--acc);color:#fff;padding:1em 1.1em;display:flex;justify-content:space-between;align-items:center}
+.f-top b{font-size:1.15em;letter-spacing:-.02em}.f-top span{font-size:.72em;font-weight:700;letter-spacing:.1em;background:rgba(255,255,255,.16);border-radius:99px;padding:.3em .7em}
+.f-dl{padding:.9em 1.1em .2em;display:grid;gap:.5em}
+.f-dl div{display:flex;justify-content:space-between;gap:1em;font-size:.86em;border-bottom:1px solid #efede8;padding-bottom:.45em}
+.f-dl dt{color:var(--mut)}.f-dl dd{font-weight:700;text-align:right}
+.f-id{margin:.3em 1.1em 0;font:500 .66em/1.4 var(--mono);color:#8a8f96;word-break:break-all}
+.f-tot{display:flex;justify-content:space-between;align-items:baseline;padding:.6em 1.1em}
+.f-tot span{font-size:.86em;color:var(--mut)}.f-tot b{font-family:var(--serif);font-weight:400;font-size:2em;letter-spacing:-.03em}
+.f-files{display:flex;gap:.5em;padding:0 1.1em 1.1em;margin-top:auto}
+.f-files .fl{background:#f6f5f1;border-color:var(--line);font-size:.86em}
+.stamp{position:absolute;right:1em;bottom:1.25em;border:.14em solid var(--acc);color:var(--acc);font-weight:700;font-size:.68em;letter-spacing:.12em;text-transform:uppercase;border-radius:.35em;padding:.3em .55em;transform:rotate(-12deg);background:rgba(232,241,236,.6)}
+@container (max-width:560px){.f-id,.doc .stamp{display:none}.f-dl{gap:.35em}}
+.toastw{position:absolute;right:0;bottom:0;width:20.5em}
+@container (max-width:560px){.toastw{width:19.5em}}
+.toast{display:flex;gap:.75em;align-items:center;background:#fff;border:1px solid var(--line);border-radius:.9em;padding:.85em 1em;box-shadow:0 1.6em 2.4em -1.6em rgba(14,16,19,.4)}
+.toast div{flex:1;min-width:0;line-height:1.3}.toast b{display:block;font-size:.92em}.toast span.s{display:block;font-size:.8em;color:var(--mut)}
+.gsi{flex:none;width:1.9em;height:2.3em;border-radius:.25em;background:#188a4f;position:relative}
+.gsi:after{content:"";position:absolute;left:.4em;right:.4em;top:.75em;height:1em;background:linear-gradient(#fff,#fff) 0 0/100% 1px no-repeat,linear-gradient(#fff,#fff) 0 50%/100% 1px no-repeat,linear-gradient(#fff,#fff) 0 100%/100% 1px no-repeat,linear-gradient(#fff,#fff) 50% 0/1px 100% no-repeat;border:1px solid #fff}
+.pill{display:inline-block;border-radius:99px;padding:2px 9px;font-size:11.5px;font-weight:700;background:#fbefd9;color:#8a4b08;white-space:nowrap}
+.pill .a{display:none}.pill .b{display:inline}
+.done .pill,.pill.ok{background:var(--acc2);color:var(--acc)}.done .pill .a{display:inline}.done .pill .b{display:none}
+.scn .pill{font-size:.78em;padding:.2em .7em}
+.gs .hx{opacity:0}
+
+/* marquee */
+.mq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:rgba(255,255,255,.35)}
+.mq-t{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mq-t span{display:inline-flex;align-items:center;gap:26px;padding-right:26px;font-size:clamp(18px,2vw,24px);font-weight:700;letter-spacing:-.02em;color:var(--ink2);white-space:nowrap}
+.mq-t span:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);opacity:.7}
+.mq:hover .mq-t{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(64px,10vw,128px) 0;border-top:1px solid var(--line)}
+.sec-h{grid-column:1/-1}
+.cards{display:grid;gap:clamp(16px,2vw,28px);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,2.4vw,32px);transition:transform .45s var(--expo),box-shadow .45s var(--expo),border-color .25s}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--expo)}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(14,16,19,.4);border-color:#d3cfc6}.card:hover:before{transform:scaleX(1)}
+.card .n{display:block;font-size:12.5px;color:var(--acc);letter-spacing:.14em;font-weight:700;margin-bottom:34px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.card h3{font-size:clamp(19px,1.6vw,22px);line-height:1.2;margin-bottom:10px}.card p{color:var(--mut);font-size:16px}
+
+/* flujo (storytelling) */
+.story{padding-bottom:clamp(32px,5vw,64px)}
+.story .intro h2{max-width:14em}
+.story .intro p{color:var(--mut);font-size:clamp(17px,1.5vw,19px);margin-top:-12px;max-width:34em}
+.steps{margin-top:clamp(28px,4vw,48px)}
+.st{display:grid;gap:24px;padding:clamp(32px,5vw,56px) 0;border-top:1px solid var(--line);align-items:center}
+.st:first-child{border-top:0;padding-top:0}
+@media(min-width:900px){.st{grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px)}}
+.st-n{display:block;font-family:var(--serif);font-size:clamp(44px,6vw,84px);line-height:1;color:var(--acc);letter-spacing:-.04em;margin-bottom:14px}
+.st-n small{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mut);margin-left:12px;vertical-align:middle}
+.st h3{font-size:clamp(26px,3.2vw,42px);line-height:1.04;letter-spacing:-.04em;margin-bottom:14px}
+.st p{color:var(--mut);max-width:28em}
+.stv{position:relative;aspect-ratio:34/28;container-type:inline-size;display:flex;align-items:center;justify-content:center;border-radius:18px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(243,241,236,.9));overflow:hidden}
+.stv:before{content:"";position:absolute;inset:0;background:radial-gradient(50% 55% at 55% 45%,rgba(15,81,50,.10),transparent 70%);pointer-events:none}
+.cv{position:relative;flex:none;font-size:12px;font-size:min(2.7cqw,16px);width:34em;height:28em}
+.rail{display:none;list-style:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
+.rail li{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--mut);transition:color .3s}
+.rail li i{display:block;height:2px;background:var(--line);margin-bottom:10px;overflow:hidden}
+.rail li b{display:block;height:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%}
+.rail li.on{color:var(--ink)}
+@media(prefers-reduced-motion:no-preference) and (min-height:620px){
+ .gs .story-pin{height:100vh;height:100svh;padding:84px 0 24px;display:flex;flex-direction:column}
+ .gs .story-pin>.w{flex:1;display:flex;flex-direction:column;min-height:0;width:100%}
+ .gs .steps{position:relative;flex:1;min-height:0;margin-top:0}
+ .gs .st{position:absolute;inset:0;padding:0;border:0;align-items:stretch}
+ .gs .st:not(:first-child){opacity:0;visibility:hidden}
+ .gs .st-t{align-self:center}
+ .gs .stv{aspect-ratio:auto;height:100%;container-type:size}
+ .gs .cv{font-size:min(2.7cqw,3.3cqh,18px)}
+ .gs .rail{display:grid}
+}
+@media(prefers-reduced-motion:no-preference) and (min-height:620px) and (max-width:899px){
+ .gs .story-pin{padding:76px 0 calc(92px + env(safe-area-inset-bottom))}
+ .gs .st{grid-template-rows:auto minmax(0,1fr);gap:16px}
+ .gs .st-n{font-size:34px;margin-bottom:6px}
+ .gs .st h3{font-size:24px;margin-bottom:6px}
+ .gs .st p{font-size:15px;line-height:1.45}
+ .gs .rail{margin-top:14px}.gs .rail li{font-size:10.5px}
+}
+/* v1 cámara */
+.cam{position:absolute;left:3em;top:.6em;width:17em;height:26.8em;background:var(--ink);border-radius:2.2em;padding:.55em;box-shadow:0 2em 3em -2em rgba(14,16,19,.5)}
+.cam-v{position:relative;height:21.6em;border-radius:1.7em 1.7em .6em .6em;overflow:hidden;background:radial-gradient(70% 60% at 45% 35%,#7a6c5b,#3a332c 70%,#221e1a)}
+.cam-v .rcp{position:absolute;left:50%;top:2.6em;width:16.9em;height:28.4em;margin-left:-8.45em;transform:rotate(-4deg);font-size:.62em}
+.br{position:absolute;width:2.2em;height:2.2em;border:.18em solid #fff;opacity:.95}
+.br.b1{left:1.4em;top:1.4em;border-width:.18em 0 0 .18em;border-radius:.5em 0 0 0}
+.br.b2{right:1.4em;top:1.4em;border-width:.18em .18em 0 0;border-radius:0 .5em 0 0}
+.br.b3{left:1.4em;bottom:1.4em;border-width:0 0 .18em .18em;border-radius:0 0 0 .5em}
+.br.b4{right:1.4em;bottom:1.4em;border-width:0 .18em .18em 0;border-radius:0 0 .5em 0}
+.flash{position:absolute;inset:0;background:#fff;opacity:0}
+.cam-b{display:flex;align-items:center;justify-content:space-between;padding:1em 1.6em 0}
+.cam-b .th{width:2.2em;height:2.2em;border-radius:.5em;background:linear-gradient(135deg,#6d6152,#2f2a25)}
+.cam-b .sh{width:3.4em;height:3.4em;border-radius:50%;border:.22em solid #fff;position:relative}.cam-b .sh:after{content:"";position:absolute;inset:.25em;border-radius:50%;background:#fff}
+.cam-b .rt{width:2.2em;height:2.2em;border-radius:50%;background:#2a2e35}
+.v1 .cm{position:absolute;right:.6em;bottom:3.2em;width:15.5em;max-width:none;font-size:1.06em;box-shadow:0 1.4em 2em -1.2em rgba(14,16,19,.4)}
+/* v2 factura */
+.v2 .fac{position:absolute;left:4em;top:1em;width:17em;height:25.6em;transform:rotate(-2deg);box-shadow:0 2em 3em -2em rgba(14,16,19,.45)}
+.v2 .fc{position:absolute;right:1.4em;width:12.5em;display:flex;align-items:center;gap:.7em;background:#fff;border:1px solid var(--line);border-radius:.8em;padding:.75em .85em;box-shadow:0 1.2em 2em -1.4em rgba(14,16,19,.45);font-size:1em}
+.v2 .fc.p{top:7em}.v2 .fc.x{top:12.4em}
+.v2 .fc i{width:2em;height:2.5em;border-radius:.25em;background:#b4400f;flex:none;position:relative}.v2 .fc.x i{background:#1e4fc4}
+.v2 .fc i:after{content:"";position:absolute;right:0;top:0;border:.4em solid;border-color:#fff #fff rgba(255,255,255,.55) rgba(255,255,255,.55)}
+.v2 .fc b{display:block;font-size:.85em;line-height:1.25}.v2 .fc span{display:block;font-size:.72em;color:var(--mut)}
+
+/* v3 hojas */
+.v3 .sheet{position:absolute;left:2.4em;top:4em;width:29em;font-size:1em}
+.v3 .s3{transform:translate(2.4em,-3.4em) rotate(3deg)}.v3 .s2{transform:translate(1.2em,-1.7em) rotate(1.5deg)}
+.v3 .sheet table{font-size:.86em}
+.v3 .s2 .shh,.v3 .s3 .shh{color:var(--mut)}
+.pl2{display:inline-grid}.pl2>span{grid-area:1/1;border-radius:99px;padding:.2em .7em;font-weight:700;font-size:.92em;white-space:nowrap;text-align:center}
+.pl2 .a{background:var(--acc2);color:var(--acc)}.pl2 .b{background:#fbefd9;color:#8a4b08;opacity:0}
+/* v4 contadora */
+.mail{position:absolute;left:1.2em;top:2.2em;width:23.4em;background:#fff;border:1px solid var(--line);border-radius:1em;overflow:hidden;box-shadow:0 2em 3em -2em rgba(14,16,19,.45)}
+.mail-bar{display:flex;align-items:center;gap:.4em;padding:.8em 1em;background:#f6f5f1;border-bottom:1px solid var(--line);font-size:.82em;font-weight:700;color:var(--mut)}
+.mail-bar i{width:.7em;height:.7em;border-radius:50%;background:#d6d1c6}.mail-bar span{margin-left:.6em}
+.mail-f{display:flex;gap:.8em;padding:.6em 1.1em;border-bottom:1px solid #efede8;font-size:.88em}.mail-f span{color:var(--mut);width:4.2em}
+.mail-l{list-style:none;padding:.5em 1.1em .4em}
+.mail-l li{display:flex;align-items:center;gap:.8em;padding:.6em 0;border-bottom:1px solid #efede8}.mail-l li:last-child{border:0}
+.mail-l li span{flex:1;min-width:0;line-height:1.3}.mail-l b{display:block;font-size:.9em}.mail-l em{display:block;font-style:normal;font-size:.76em;color:var(--mut)}
+.mail-l strong{font-size:.9em;font-variant-numeric:tabular-nums}
+.mail-s{display:flex;justify-content:flex-end;padding:.2em 1.1em 1.1em}
+.sent{display:inline-flex;align-items:center;gap:.5em;background:var(--acc);color:#fff;border-radius:.5em;padding:.55em 1em;font-weight:700;font-size:.88em}
+.cal{position:absolute;right:.8em;top:15.4em;width:8.4em;background:#fff;border:1px solid var(--line);border-radius:.9em;overflow:hidden;text-align:center;box-shadow:0 1.4em 2em -1.4em rgba(14,16,19,.45);transform:rotate(4deg)}
+.cal small{display:block;background:#b4400f;color:#fff;font-weight:700;font-size:.78em;letter-spacing:.12em;text-transform:uppercase;padding:.45em 0}
+.cal b{display:block;font-family:var(--serif);font-weight:400;font-size:2.1em;line-height:1.3;padding-top:.15em}
+.cal span{display:block;font-size:.74em;color:var(--mut);padding:0 0 .8em}
+.cal .ck{position:absolute;right:.5em;bottom:.5em;width:1.7em;height:1.7em;border-radius:50%;background:var(--acc)}
+.cal .ck:after{content:"";position:absolute;left:.58em;top:.36em;width:.42em;height:.75em;border:solid #fff;border-width:0 .16em .16em 0;transform:rotate(45deg)}
+
+@container (max-width:520px){
+ .cv{width:26em;height:30em;font-size:min(3.7cqw,16px)}
+ .gs .cv{font-size:min(3.7cqw,3.2cqh,16px)}
+ .v1 .cam{left:1em}.v1 .cm{right:0;bottom:1.4em}
+ .v2 .fac{left:.4em;top:2em;width:14.8em}.v2 .fc{right:0;width:10.6em}.v2 .fc.p{top:9em}.v2 .fc.x{top:14.4em}
+ .v2 .stamp{bottom:3.6em}.v2 .f-id{display:none}
+ .v3 .sheet{left:.2em;top:5em;width:23.2em}.v3 .sheet table{font-size:.74em}
+ .mail{left:.6em;top:1em;width:24.8em}.cal{right:1.4em;top:21.6em}
+}
+@media(max-width:620px){.stv{aspect-ratio:26/30}}
+/* sheets */
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:12.5px;min-width:0;box-shadow:0 1px 0 rgba(14,16,19,.04),0 24px 40px -28px rgba(14,16,19,.3)}
+.shh{display:flex;align-items:center;gap:9px;padding:11px 14px;font-weight:700;font-size:13.5px;border-bottom:1px solid var(--line)}
+.shh:before{content:"";width:14px;height:17px;border-radius:2px;background:#188a4f;flex:none}
+.cv .sheet{border-radius:.9em;font-size:1em}.cv .shh{font-size:.95em;padding:.8em 1em;gap:.6em}.cv .shh:before{width:1em;height:1.2em}
+.sc-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sheet table{width:100%;border-collapse:collapse;white-space:nowrap}
+.sheet th,.sheet td{border-bottom:1px solid #ecebe6;padding:8px 10px;text-align:left}
+.cv .sheet th,.cv .sheet td{padding:.6em .75em}.cv .sheet .sc-x{overflow:hidden}
+.sheet th{background:#f6f5f1;font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.cv .sheet th{font-size:.78em}.cv .pill{font-size:.92em;padding:.2em .7em}
+.sheet td.n{font-variant-numeric:tabular-nums}
+.lk{color:#1a5fb4;text-decoration:underline;text-underline-offset:2px}
+.tabs{display:flex;background:#f1f0eb;border-top:1px solid var(--line);overflow-x:auto}
+.tabs span{padding:10px 14px;font-size:12px;color:var(--mut);white-space:nowrap;border-right:1px solid var(--line)}
+.cv .tabs span{padding:.6em .9em;font-size:.82em}
+.tabs .on{background:#fff;font-weight:700;color:var(--acc);box-shadow:inset 0 -2px 0 var(--acc)}
+tr.tot td{font-weight:700;background:#fbfaf8;border-bottom:0}
+
+/* equipo */
+.phone{width:100%;max-width:320px;margin:0 auto;border:1px solid var(--ink);border-radius:26px;background:var(--ink);padding:7px;box-shadow:0 1px 0 rgba(14,16,19,.06),0 24px 40px -24px rgba(14,16,19,.35)}
+.phone-in{background:#ece6dc;border-radius:20px;overflow:hidden}
+.wah{background:#0b4a41;color:#fff;padding:11px 14px;font-weight:700;font-size:14px;line-height:1.3}.wah small{display:block;font-weight:400;opacity:.78;font-size:11.5px}
+.wab{padding:12px;display:flex;flex-direction:column;gap:8px;min-height:312px}
+.msg{background:#fff;border-radius:3px 10px 10px 10px;padding:7px 9px 8px;max-width:88%;font-size:13px;line-height:1.35;box-shadow:0 1px 0 rgba(0,0,0,.07)}
+.msg b{display:block;font-size:11.5px;margin-bottom:4px}
+.tk{display:flex;gap:9px;align-items:center}.tk em{font-style:normal;color:var(--mut);font-size:12px;display:block}.tk strong{font-size:13.5px}
+.tk .rc{flex:0 0 36px;height:46px;padding:6px 5px;gap:3px}
+.me{align-self:flex-end;background:#d7f0cf;border-radius:10px 3px 10px 10px}
+.eq{align-items:start;row-gap:28px}
+.eq-wa{grid-column:1/-1;min-width:0}.eq-sh{grid-column:1/-1;display:grid;gap:16px;min-width:0}
+@media(min-width:960px){.eq-wa{grid-column:1/6;position:sticky;top:96px}.eq-sh{grid-column:6/-1}}
+.eq-wa .phone{max-width:380px;margin:0}.eq-wa .wab{min-height:0;padding:16px;gap:10px}.eq-wa .msg{font-size:14px}.eq-wa .tk .rc{flex-basis:42px;height:54px}
+.eq-sh .sheet{transition:transform .5s var(--expo),box-shadow .5s var(--expo)}.eq-sh .sheet:hover{transform:translateY(-3px);box-shadow:0 1px 0 rgba(14,16,19,.04),0 30px 44px -28px rgba(14,16,19,.4)}
+.eq-sh tr{transition:background .2s}.eq-sh tr:not(.tot):hover td{background:#fafaf6}
+.pts{grid-column:1/-1;list-style:none;margin-top:clamp(20px,3vw,40px);display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));column-gap:clamp(16px,2vw,28px)}
+.pts li{border-top:1px solid var(--ink);padding:18px 0 8px;color:var(--mut);font-size:16px}.pts b{display:block;color:var(--ink);font-size:17px;letter-spacing:-.01em;margin-bottom:4px}
+
+/* price */
+.price{align-items:start;row-gap:24px}
+.pbox{grid-column:1/-1;position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(26px,3.4vw,44px);overflow:hidden;box-shadow:0 24px 40px -32px rgba(14,16,19,.35);transition:transform .5s var(--expo),box-shadow .5s var(--expo)}
+.pbox:hover{transform:translateY(-3px);box-shadow:0 34px 50px -34px rgba(14,16,19,.45)}
+.pbox>*:not(.spot){position:relative;z-index:1}
+.pbox:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--acc);z-index:2}
+.spot{position:absolute;left:-220px;top:-220px;width:440px;height:440px;border-radius:50%;background:radial-gradient(closest-side,rgba(15,81,50,.09),rgba(15,81,50,0));opacity:0;pointer-events:none;z-index:0}
+.yr{margin-top:12px;font-size:15px;color:var(--ink2)}.yr b{color:var(--acc)}
+.anc{margin-top:16px}
+.trial{grid-column:1/-1;background:var(--acc2);border-radius:14px;padding:clamp(26px,3.4vw,40px)}
+@media(min-width:900px){.pbox.basic{grid-column:1/6}.pbox.rec{grid-column:6/-1}}
+.pbox.basic:before{background:var(--line)}.pbox.rec{border:2px solid var(--acc)}.pl{font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:flex;gap:10px;align-items:center}
+.tag{position:relative;overflow:hidden;background:var(--acc);color:#fff;font-size:11px;padding:4px 9px;border-radius:99px;letter-spacing:.04em}
+.tag:after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));transform:translateX(-150%);animation:shine 4.5s var(--ease) infinite}
+@keyframes shine{0%,60%{transform:translateX(-150%)}100%{transform:translateX(350%)}}
+.pbox .btn{width:100%;text-align:center}.pbox .btn.ghost{background:transparent;color:var(--acc);box-shadow:inset 0 0 0 1.5px var(--acc)}.pbox .btn.ghost:hover{background:var(--acc);color:#fff}
+.amt{font-family:var(--serif);font-size:clamp(56px,8vw,88px);font-weight:400;letter-spacing:-.04em;line-height:1}.amt small{font-family:Helvetica,Arial,sans-serif;font-size:16px;color:var(--mut);letter-spacing:0}
+ul.ck{list-style:none;margin:28px 0 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));column-gap:28px}
+ul.ck li{padding:11px 0 11px 28px;border-top:1px solid var(--line);position:relative;font-size:16px}
+ul.ck li:before{content:"";position:absolute;left:3px;top:17px;width:7px;height:12px;border:solid var(--acc);border-width:0 2px 2px 0;transform:rotate(45deg) scale(.9)}
+.trial h3{font-size:clamp(22px,2.2vw,28px);margin-bottom:12px;line-height:1.1}.trial p{color:var(--ink2)}.trial .note{margin-top:20px;padding-top:16px;border-top:1px solid rgba(15,81,50,.25);color:var(--acc)}
+
+/* faq */
+.faq{grid-column:1/-1}
+@media(min-width:960px){.faq{grid-column:4/-1}.faq-h{grid-column:1/4}}
+.faq-h{grid-column:1/-1}.faq-h h2{margin-bottom:24px}
+details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:64px;padding:14px 0;font-weight:700;font-size:clamp(17px,1.4vw,19px);letter-spacing:-.015em;line-height:1.3;-webkit-tap-highlight-color:transparent;transition:color .2s}
+summary:hover{color:var(--acc)}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"";flex:none;width:10px;height:10px;border:solid var(--ink);border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-2px);transition:transform .45s var(--expo),border-color .2s;margin-right:4px}
+details[open] summary:after{transform:rotate(-135deg) translateY(-2px);border-color:var(--acc)}
+details p{color:var(--mut);padding:0 40px 22px 0;max-width:42em;animation:fd .45s var(--expo)}
+@keyframes fd{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* cta + footer */
+.cta{position:relative;overflow:hidden;background:var(--ink);color:#f4f2ed;border-top:0;text-align:left;isolation:isolate}
+.cta:before,.cta:after{content:"";position:absolute;z-index:-1;width:70vmax;height:70vmax;border-radius:50%;pointer-events:none;will-change:transform;animation:drift 30s ease-in-out infinite alternate}
+.cta:before{right:-30vmax;top:-40vmax;background:radial-gradient(closest-side,rgba(52,168,108,.28),rgba(52,168,108,0))}
+.cta:after{left:-35vmax;bottom:-50vmax;background:radial-gradient(closest-side,rgba(15,81,50,.45),rgba(15,81,50,0));animation-duration:38s;animation-delay:-12s}
+.cta h2{margin-bottom:18px;max-width:11em;font-size:clamp(38px,6.4vw,84px);line-height:.98}.cta p{color:#aeb3bb;margin-bottom:32px;font-size:clamp(17px,1.6vw,20px)}
+.cta .btn{background:#f4f2ed;color:var(--ink);border-color:#f4f2ed;min-height:56px;padding:0 30px;font-size:17px}.cta .btn:hover{background:#fff}
+.cta .btn:after{background:linear-gradient(100deg,rgba(15,81,50,0),rgba(15,81,50,.14),rgba(15,81,50,0))}
+footer{padding:28px 0;font-size:14px;color:var(--mut)}
+footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:var(--acc)}
+
+/* mobile bar */
+.mbar{display:none}
+@media(max-width:899px){
+ .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(250,249,246,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+ .mbar .btn{width:100%}
+ body{padding-bottom:72px}
+}
+.wa{width:18px;height:18px;flex:none}
+
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*:before,*:after{animation:none!important;transition:none!important}
+ .gs .hx{opacity:1}
+}
+</style></head><body>
+<div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="prog" aria-hidden="true"></div>
+<header id="top"><div class="w"><a class="logo" href="#top" aria-label="Ticketo">Ticket<span>o</span></a>
+<nav aria-label="Principal"><a href="#como">Cómo funciona</a><a href="#prueba">Semana gratis</a><a href="#equipo">Equipo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a></nav>
+<a class="btn sm mag" href="https://wa.me/528331740983?text=Hola%2C%20quiero%20probar%20la%20semana%20gratis%20de%20Ticketo.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span>Probar gratis</span></a></div></header>
+<main>
+<div class="w"><div class="g12 hero">
+<div class="hero-t">
+<span class="badge fx" style="--d:.05s"><i></i>Primera semana gratis</span>
+<h1><span class="ln"><span>Mandas foto del ticket.</span></span><span class="ln"><span>Te regresa <em>la factura.</em></span></span></h1>
+<p class="sub fx" style="--d:.3s">Todo tu equipo manda sus tickets a <b>un solo grupo de WhatsApp</b>. Sabemos de quién es cada foto, le llevamos su propia caja chica en Google Sheets y se la mandamos a tu contadora cada semana.</p>
+<div class="acts fx" style="--d:.42s"><a class="btn mag" href="https://wa.me/528331740983?text=Hola%2C%20quiero%20probar%20la%20semana%20gratis%20de%20Ticketo.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>Pruébalo una semana gratis</span></a><a class="lnk" href="#flujo">Ver cómo se ve</a></div>
+<div class="note fx" style="--d:.52s">Sin contrato. Lo usamos en una constructora antes de ofrecerlo.<br>Al escribirnos te preguntamos tres cosas: tu empresa, cuántas personas traen tickets y cuántos juntan al mes.</div></div>
+
+<div class="hero-d"><div class="scene" role="img" aria-label="Demostración: Juan manda al grupo de WhatsApp la foto de un ticket de gasolina; el ticket se convierte en factura CFDI 4.0 en PDF y XML y queda en su caja chica de Google Sheets.">
+<div class="scn" aria-hidden="true">
+<div class="ph"><div class="ph-in">
+<div class="ph-h"><span class="av">TC</span><span><b>Tickets · Constructora</b><small>Juan, Lupita, Carlos, Tú</small></span></div>
+<div class="ph-b">
+<div class="cm m1 hx"><b class="who c1">Juan (residente)</b><div class="pic"><span class="mini"><i></i><i></i><i></i><i></i><i></i><i></i></span></div><span class="t">Ticket gasolina · <b>$850.00</b></span><span class="tm">10:42</span></div>
+<div class="cm m2 hx"><b class="who c2">Lupita (compras)</b><div class="tkr"><span class="rc"><i></i><i></i><i></i><i></i><i></i></span><span><em>Ticket ferretería</em><strong>$1,240.50</strong></span></div><span class="tm">10:44</span></div>
+<div class="cm typ ty hx"><i></i><i></i><i></i></div>
+<div class="cm me m3 hx"><span class="t">✓ Facturado: gasolina de Juan. PDF y XML en su hoja.</span><div class="files"><span class="fl"><i></i>PDF</span><span class="fl x"><i></i>XML</span></div><span class="tm">10:51<i>✓✓</i></span></div>
+</div>
+<div class="ph-f"><span>Mensaje</span><i></i></div>
+</div></div>
+<div class="doc">
+<div class="tkt hx"><div class="rcp"><b class="t-h">GASOLINERA</b><span class="t-s">Sucursal Centro</span><span class="t-s">07/10 · 10:38</span><hr><div class="t-r tl"><span>Magna</span><span>$850.00</span></div><div class="t-r tl"><span>IVA incluido</span><span></span></div><hr><div class="t-r t-tot tl"><span>TOTAL</span><span>$850.00</span></div><span class="tl">Pago: tarjeta</span><i class="t-bar tl"></i><span class="t-x tl">Gracias por su compra</span></div></div>
+<div class="fac hx"><div class="f-top"><b>Factura</b><span>CFDI 4.0</span></div><dl class="f-dl"><div><dt>Emisor</dt><dd>Gasolinera</dd></div><div><dt>Receptor</dt><dd>Tu empresa</dd></div><div><dt>Concepto</dt><dd>Combustible</dd></div><div><dt>Fecha</dt><dd>07/10</dd></div></dl><span class="f-id">Folio fiscal · 7C2E…A91F</span><div class="f-tot"><span>Total</span><b>$850.00</b></div><div class="f-files"><span class="fl"><i></i>PDF</span><span class="fl x"><i></i>XML</span></div><span class="stamp">Facturado</span></div>
+</div>
+<div class="toastw"><div class="toast hx"><i class="gsi"></i><div><b>Caja chica · Juan</b><span class="s">Gasolinera · $850.00 · PDF y XML</span></div><span class="pill ok">Facturado</span></div></div>
+</div></div></div>
+</div></div>
+
+<div class="mq" aria-hidden="true"><div class="mq-t"><span>Gasolina</span><span>Diésel</span><span>Casetas</span><span>Ferretería</span><span>Comidas de cuadrilla</span><span>Viáticos</span><span>Papelería</span><span>Restaurantes</span><span>Gasolina</span><span>Diésel</span><span>Casetas</span><span>Ferretería</span><span>Comidas de cuadrilla</span><span>Viáticos</span><span>Papelería</span><span>Restaurantes</span></div></div>
+
+<section id="flujo" class="story"><div class="w intro"><span class="eyebrow">Del ticket a tu contadora</span><h2>Tú mandas la foto. Nosotros, lo demás.</h2><p>Así se ve una semana de tickets con Ticketo, de la foto en el grupo al correo de tu contadora el viernes.</p></div>
+<div class="story-pin"><div class="w">
+<div class="steps">
+<article class="st"><div class="st-t"><span class="st-n">01<small>Foto</small></span><h3>Tomas foto del ticket</h3><p>Juan, Lupita o Carlos la mandan al grupo de WhatsApp de siempre. Nadie tiene que aprender nada nuevo.</p></div>
+<div class="stv" aria-hidden="true"><div class="cv v1">
+<div class="cam"><div class="cam-v"><div class="rcp"><b class="t-h">GASOLINERA</b><span class="t-s">Sucursal Centro</span><span class="t-s">07/10 · 10:38</span><hr><div class="t-r"><span>Magna</span><span>$850.00</span></div><hr><div class="t-r t-tot"><span>TOTAL</span><span>$850.00</span></div><i class="t-bar"></i></div><i class="br b1"></i><i class="br b2"></i><i class="br b3"></i><i class="br b4"></i><i class="flash"></i></div><div class="cam-b"><i class="th"></i><i class="sh"></i><i class="rt"></i></div></div>
+<div class="cm"><b class="who c1">Juan (residente)</b><div class="tkr"><span class="rc"><i></i><i></i><i></i><i></i><i></i></span><span><em>Ticket gasolina</em><strong>$850.00</strong></span></div><span class="tm">10:42<i>✓✓</i></span></div>
+</div></div></article>
+
+<article class="st"><div class="st-t"><span class="st-n">02<small>Factura</small></span><h3>Te regresa la factura</h3><p>CFDI 4.0 en PDF y XML, timbrada a nombre de tu empresa. Normalmente en menos de 48 horas hábiles.</p></div>
+<div class="stv" aria-hidden="true"><div class="cv v2">
+<div class="fac"><div class="f-top"><b>Factura</b><span>CFDI 4.0</span></div><dl class="f-dl"><div><dt>Emisor</dt><dd>Gasolinera</dd></div><div><dt>Receptor</dt><dd>Tu empresa</dd></div><div><dt>Concepto</dt><dd>Combustible</dd></div><div><dt>Fecha</dt><dd>07/10</dd></div></dl><span class="f-id">Folio fiscal · 7C2E…A91F</span><div class="f-tot"><span>Total</span><b>$850.00</b></div><div class="f-files"><span class="fl"><i></i>PDF</span><span class="fl x"><i></i>XML</span></div><span class="stamp">Facturado</span></div>
+<div class="fc p"><i></i><span><b>Factura gasolina</b><span>PDF · Juan</span></span></div>
+<div class="fc x"><i></i><span><b>Factura gasolina</b><span>XML · Juan</span></span></div>
+</div></div></article>
+
+<article class="st"><div class="st-t"><span class="st-n">03<small>Caja chica</small></span><h3>Cada quien, su caja chica</h3><p>La factura queda en la hoja de Google Sheets de quien mandó el ticket: fecha, comercio, monto, PDF/XML y estatus.</p></div>
+<div class="stv" aria-hidden="true"><div class="cv v3">
+<div class="sheet s3"><div class="shh">Caja chica · Carlos · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr><tr><td>08/10</td><td>Restaurante</td><td class="n">$315.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill ok">Facturado</span></td></tr></table></div></div>
+<div class="sheet s2"><div class="shh">Caja chica · Lupita · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr><tr><td>07/10</td><td>Ferretería</td><td class="n">$1,240.50</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill ok">Facturado</span></td></tr></table></div></div>
+<div class="sheet s1"><div class="shh">Caja chica · Juan · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr>
+<tr class="rw"><td>07/10</td><td>Gasolinera</td><td class="n">$850.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pl2"><span class="a">Facturado</span><span class="b">En proceso</span></span></td></tr>
+<tr class="rw"><td>08/10</td><td>Restaurante</td><td class="n">$420.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pl2"><span class="a">Facturado</span><span class="b">En proceso</span></span></td></tr>
+<tr class="rw"><td>09/10</td><td>Caseta</td><td class="n">$156.00</td><td>—</td><td><span class="pill">En proceso</span></td></tr>
+<tr class="tot rw"><td colspan="2">Total</td><td class="n">$1,426.00</td><td colspan="2">Enviado a contadora: viernes</td></tr></table></div>
+<div class="tabs"><span class="on">Juan</span><span>Lupita</span><span>Carlos</span><span>Resumen</span></div></div>
+</div></div></article>
+
+<article class="st"><div class="st-t"><span class="st-n">04<small>Contadora</small></span><h3>El viernes, a tu contadora</h3><p>Le llega la hoja de cada persona con las facturas en PDF y XML ligadas. No tiene que instalar nada. Y si la necesitas antes, la pides en el grupo.</p></div>
+<div class="stv" aria-hidden="true"><div class="cv v4">
+<div class="mail"><div class="mail-bar"><i></i><i></i><i></i><span>Caja chica · Semana 41</span></div>
+<div class="mail-f"><span>Para</span><b>Tu contadora</b></div>
+<ul class="mail-l"><li><i class="gsi"></i><span><b>Caja chica · Juan</b><em>PDF y XML ligados</em></span><strong>$1,426.00</strong></li><li><i class="gsi"></i><span><b>Caja chica · Lupita</b><em>PDF y XML ligados</em></span><strong>$1,426.50</strong></li><li><i class="gsi"></i><span><b>Caja chica · Carlos</b><em>PDF y XML ligados</em></span><strong>$315.00</strong></li></ul>
+<div class="mail-s"><span class="sent">✓ Enviado</span></div></div>
+<div class="cal"><small>Viernes</small><b>41</b><span>Semana</span><i class="ck"></i></div>
+</div></div></article>
+</div>
+<ol class="rail" aria-hidden="true"><li class="on"><i><b></b></i>Foto</li><li><i><b></b></i>Factura</li><li><i><b></b></i>Caja chica</li><li><i><b></b></i>Contadora</li></ol>
+</div></div></section>
+
+<section id="como"><div class="w"><span class="eyebrow rv">Paso a paso</span><h2 class="rv">Cómo funciona</h2><div class="cards">
+<div class="card rv"><b class="n">PASO 1</b><h3>Nos pasas tus datos fiscales una vez</h3><p>RFC, razón social, régimen, código postal y correo. No te los volvemos a pedir.</p></div>
+<div class="card rv"><b class="n">PASO 2</b><h3>Todos mandan foto al mismo grupo</h3><p>Un solo grupo de WhatsApp para todo el equipo: choferes, residentes, técnicos. Cada quien manda sus tickets ahí.</p></div>
+<div class="card rv"><b class="n">PASO 3</b><h3>Cada quien tiene su caja chica</h3><p>Sabemos quién mandó cada ticket. Su factura (PDF y XML) queda en su hoja de Google Sheets y se le manda a tu contadora cada semana o cuando la pidas.</p></div>
+</div></div></section>
+
+<section id="prueba"><div class="w"><span class="eyebrow rv">Semana gratis</span><h2 class="rv">Así arranca tu prueba</h2><div class="cards">
+<div class="card rv"><b class="n">DÍA 0</b><h3>Nos escribes por WhatsApp</h3><p>Te hacemos tres preguntas para ver si te conviene y nos mandas tu Constancia de Situación Fiscal (foto o PDF). Con eso tenemos tus datos para facturar.</p></div>
+<div class="card rv"><b class="n">DÍA 1</b><h3>Armamos tu grupo</h3><p>Creamos el grupo «Tickets · Tu empresa» con las personas que nos indiques. Le pasamos a tu equipo una instrucción de una línea: foto del ticket, completa y legible, el mismo día.</p></div>
+<div class="card rv"><b class="n">DÍAS 1 A 7</b><h3>Tu equipo manda tickets</h3><p>Cada factura regresa al grupo y queda en la caja chica de quien mandó el ticket. Si alguno no se puede facturar, te decimos por qué.</p></div>
+<div class="card rv"><b class="n">DÍA 7</b><h3>Revisas y decides</h3><p>Te mandamos el resumen de la semana: facturas emitidas, tickets no facturables y la caja chica de cada persona, que también le llega a tu contadora. Si te sirve, eliges plan. Si no, no pagas nada.</p></div>
+</div><p class="note rv" style="margin-top:28px">Para la prueba solo necesitamos tu Constancia de Situación Fiscal, el correo de tu contadora y los nombres y números de quienes van a mandar tickets.</p></div></section>
+
+<section id="equipo"><div class="w"><h2 class="rv">Un grupo para todo el equipo.<br>Una caja chica por persona.</h2><div class="g12 eq">
+<div class="eq-wa rv"><div class="phone"><div class="phone-in"><div class="wah">Tickets · Constructora<small>Juan, Lupita, Carlos, Tú</small></div><div class="wab">
+<div class="msg"><b class="c1">Juan (residente)</b><div class="tk"><span class="rc"><i></i><i></i><i></i><i></i><i></i></span><span><em>Ticket gasolina</em><strong>$850.00</strong></span></div></div>
+<div class="msg"><b class="c2">Lupita (compras)</b><div class="tk"><span class="rc"><i></i><i></i><i></i><i></i><i></i></span><span><em>Ticket ferretería</em><strong>$1,240.50</strong></span></div></div>
+<div class="msg"><b class="c3">Carlos (chofer)</b><div class="tk"><span class="rc"><i></i><i></i><i></i><i></i><i></i></span><span><em>Ticket comida</em><strong>$315.00</strong></span></div></div>
+<div class="msg me">✓ Facturado: gasolina de Juan. PDF y XML en su hoja.</div></div></div></div></div>
+<div class="eq-sh">
+<div class="sheet rv"><div class="shh">Caja chica · Juan · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr>
+<tr class="done"><td>07/10</td><td>Gasolinera</td><td class="n">$850.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill"><span class="a">Facturado</span></span></td></tr>
+<tr class="done"><td>08/10</td><td>Restaurante</td><td class="n">$420.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill"><span class="a">Facturado</span></span></td></tr>
+<tr><td>09/10</td><td>Caseta</td><td class="n">$156.00</td><td>—</td><td><span class="pill"><span class="b">En proceso</span></span></td></tr>
+<tr class="tot"><td colspan="2">Total</td><td class="n">$1,426.00</td><td colspan="2">Enviado a contadora: viernes</td></tr></table></div>
+<div class="tabs"><span class="on">Juan</span><span>Lupita</span><span>Carlos</span><span>Resumen</span></div></div>
+<div class="sheet rv"><div class="shh">Caja chica · Lupita · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr>
+<tr class="done"><td>07/10</td><td>Ferretería</td><td class="n">$1,240.50</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill"><span class="a">Facturado</span></span></td></tr>
+<tr class="done"><td>09/10</td><td>Papelería</td><td class="n">$186.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill"><span class="a">Facturado</span></span></td></tr>
+<tr class="tot"><td colspan="2">Total</td><td class="n">$1,426.50</td><td colspan="2">Enviado a contadora: viernes</td></tr></table></div>
+<div class="tabs"><span>Juan</span><span class="on">Lupita</span><span>Carlos</span><span>Resumen</span></div></div>
+<div class="sheet rv"><div class="shh">Caja chica · Carlos · Semana 41</div><div class="sc-x"><table><tr><th>Fecha</th><th>Comercio</th><th>Monto</th><th>Factura</th><th>Estatus</th></tr>
+<tr class="done"><td>08/10</td><td>Restaurante</td><td class="n">$315.00</td><td><span class="lk">PDF</span> · <span class="lk">XML</span></td><td><span class="pill"><span class="a">Facturado</span></span></td></tr>
+<tr class="tot"><td colspan="2">Total</td><td class="n">$315.00</td><td colspan="2">Enviado a contadora: viernes</td></tr></table></div>
+<div class="tabs"><span>Juan</span><span>Lupita</span><span class="on">Carlos</span><span>Resumen</span></div></div>
+</div>
+<ul class="pts rv"><li><b>Un solo grupo de WhatsApp.</b> Nadie tiene que aprender nada nuevo.</li><li><b>Sabemos quién mandó cada ticket.</b> La caja chica de cada persona va por separado.</li><li><b>Google Sheets por persona</b> con fecha, comercio, monto, factura PDF/XML y estatus.</li><li><b>Directo a tu contadora</b> cada semana, o cuando la pidas.</li></ul>
+</div></div></section>
+
+<section><div class="w"><h2 class="rv">Qué recibes</h2><div class="cards">
+<div class="card rv"><h3>Factura CFDI 4.0</h3><p>PDF y XML timbrados a nombre de tu empresa, listos para tu contador.</p></div>
+<div class="card rv"><h3>Caja chica por persona en Google Sheets</h3><p>Fecha, comercio, monto, factura PDF/XML ligada y estatus. Se manda a tu contadora cada semana o cuando quieras.</p></div>
+<div class="card rv"><h3>Aviso de tickets que no se pueden facturar</h3><p>Si un ticket ya venció o el comercio no factura, te avisamos el mismo día para que no lo esperes.</p></div>
+</div></div></section>
+
+<section><div class="w"><h2 class="rv">Para quién es</h2><div class="cards">
+<div class="card rv"><h3>Constructoras</h3><p>Obras con gasolina, material de ferretería y comidas de cuadrillas.</p></div>
+<div class="card rv"><h3>Transporte y logística</h3><p>Diésel, casetas y viáticos de operadores en ruta.</p></div>
+<div class="card rv"><h3>Servicios de campo</h3><p>Técnicos que se mueven todo el día y juntan tickets en la guantera.</p></div>
+<div class="card rv"><h3>Despachos contables</h3><p>Para tus clientes que te llegan con una bolsa de tickets a fin de mes.</p></div>
+</div><p class="note rv" style="margin-top:28px">Atendemos empresas en Tampico, León y el resto de México.</p></div></section>
+
+<section id="precio"><div class="w"><h2 class="rv">Precio</h2><div class="g12 price">
+<div class="pbox basic rv"><i class="spot" aria-hidden="true"></i><div class="pl">Personal</div><div class="amt">$900 <small>MXN al mes</small></div><!-- PENDIENTE EDUARDO: plan anual propuesto = 10 mensualidades. Confirmar antes de publicar. --><div class="yr">o <b>$9,000 al año</b>: pagas 10 meses, usas 12</div>
+<ul class="ck"><!-- PENDIENTE EDUARDO: definir tope de tickets de Personal (número). --><li><b>Tickets limitados</b></li><li>1 razón social</li><li>Factura CFDI 4.0 en PDF y XML</li><li>Caja chica en Google Sheets</li><li>Factura en menos de 48 h hábiles</li><li>Aviso de tickets no facturables</li><li>Sin contrato, más IVA</li></ul>
+<a class="btn ghost" href="https://wa.me/528331740983?text=Hola%2C%20me%20interesa%20el%20plan%20Personal%20de%20Ticketo%20%28%24900%20al%20mes%29.%20Quiero%20probar%20la%20semana%20gratis.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span>Elegir Personal</span></a></div>
+<div class="pbox rec rv"><i class="spot" aria-hidden="true"></i><div class="pl">Empresa <span class="tag">Recomendado</span></div><div class="amt">$2,000 <small>MXN al mes</small></div><!-- PENDIENTE EDUARDO: plan anual propuesto = 10 mensualidades. Confirmar antes de publicar. --><div class="yr">o <b>$20,000 al año</b>: pagas 10 meses, usas 12</div>
+<ul class="ck"><li><b>Tickets ilimitados</b></li><li>Hasta 2 razones sociales</li><li>Un grupo de WhatsApp para todo el equipo</li><li>Caja chica por persona en Google Sheets</li><li>Envío semanal a tu contadora</li><li>Factura en menos de 48 h hábiles</li><li>Aviso de tickets no facturables</li><li>Sin contrato, más IVA</li></ul>
+<a class="btn" href="https://wa.me/528331740983?text=Hola%2C%20me%20interesa%20el%20plan%20Empresa%20de%20Ticketo%20%28%242%2C000%20al%20mes%29.%20Quiero%20probar%20la%20semana%20gratis.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span>Elegir Empresa</span></a></div>
+<div class="trial rv"><h3>Primera semana gratis en ambos planes</h3><p>Mándanos los tickets de una semana y te regresamos todas las facturas. Si te sirve, sigues. Si no, no pagas nada.</p><p class="anc">Para compararlo: un ticket de ferretería de $1,240.50 trae $171.10 de IVA. Si se vence sin factura, ese IVA ya no lo acreditas. Suma los que se te vencen al mes y las horas de quien hoy entra a facturar cada uno.</p><p class="note">Precio más IVA si requieres factura del servicio.</p></div>
+</div></div></section>
+
+<section id="faq"><div class="w"><div class="g12"><div class="faq-h rv"><h2>Preguntas frecuentes</h2></div><div class="faq rv">
+<details><summary>¿Y si varios mandan al mismo grupo?</summary><p>Esa es la idea. Sabemos quién mandó cada foto y cada ticket se va a la caja chica de esa persona. No se revuelven.</p></details>
+<details><summary>¿Mi contadora necesita algo?</summary><p>No. Solo su correo. Le llega cada semana la hoja de cada persona con las facturas en PDF y XML ligadas. No tiene que instalar nada ni entrar a ningún lado.</p></details>
+<details><summary>¿Puedo pedir la caja chica antes del viernes?</summary><p>Sí. La pides en el grupo y te la mandamos a ti o a tu contadora ese mismo día.</p></details>
+<details><summary>¿Qué tan seguros están mis datos fiscales?</summary><p>Solo pedimos lo que ya va impreso en cualquier factura: RFC, razón social, régimen, código postal y uso de CFDI. Nunca pedimos tu e.firma, tu contraseña del SAT ni datos bancarios. Tus datos se usan solo para facturar tus tickets.</p></details>
+<details><summary>¿Y si el ticket ya está vencido?</summary><p>Cada comercio tiene su plazo; muchos solo dejan facturar en el mismo mes. Si llega vencido te avisamos. Por eso conviene mandarlos el mismo día que se generan.</p></details>
+<details><summary>¿Cuánto tardan?</summary><p>Normalmente menos de 48 horas hábiles. Algunos comercios tardan más en liberar la factura; en esos casos te avisamos.</p></details>
+<details><summary>¿Hay límite de tickets?</summary><p>En Empresa no: tickets ilimitados para hasta 2 razones sociales. Personal es para 1 razón social con tickets limitados.</p></details>
+<details><summary>¿Cuántos tickets incluye el plan Personal?</summary><p>Está pensado para uso personal o negocio chico. Si mandas muchos, te avisamos y puedes pasar a Empresa.</p></details>
+<details><summary>¿Qué pasa si un comercio no deja facturar?</summary><p>Te lo decimos con el motivo (ticket ilegible, sin datos de facturación, comercio que no factura) para que no lo esperes.</p></details>
+<details><summary>¿Tengo que cambiar algo en mi empresa?</summary><p>No. Tu equipo sigue pagando igual; nada más manda foto del ticket al grupo de WhatsApp.</p></details>
+<details><summary>¿Qué necesito para arrancar la semana gratis?</summary><p>Tu Constancia de Situación Fiscal (foto o PDF), el correo de tu contadora y el nombre y número de cada persona que va a mandar tickets. Con eso armamos el grupo.</p></details>
+<details><summary>¿Qué pasa al terminar la semana gratis?</summary><p>Te mandamos el resumen: cuántas facturas salieron, qué tickets no se pudieron facturar y por qué. Con eso eliges Personal o Empresa. Si no te convence, no pagas nada y no te volvemos a escribir.</p></details>
+<!-- PENDIENTE EDUARDO: confirmar plan anual (10 mensualidades) y que las hojas quedan a nombre del cliente. -->
+<details><summary>¿Hay pago anual?</summary><p>Sí. Pagas 10 meses y usas 12: Personal $9,000 al año, Empresa $20,000 al año, más IVA.</p></details>
+<details><summary>¿Si dejo el servicio, me quedo con mis facturas?</summary><p>Sí. Las facturas en PDF y XML y las hojas de caja chica de cada persona son tuyas y se quedan contigo.</p></details>
+<details><summary>¿Cómo pago?</summary><p>Transferencia mensual o anual. Sin contrato ni plazo forzoso.</p></details>
+</div></div></div></section>
+
+<section class="cta"><div class="w"><h2 class="rv">Deja de perseguir tickets.</h2><p class="rv">Una semana gratis. Mandas foto, te regresa la factura.</p><a class="btn rv mag" href="https://wa.me/528331740983?text=Hola%2C%20quiero%20probar%20la%20semana%20gratis%20de%20Ticketo.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>Escríbenos por WhatsApp<svg class="ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div></section>
+</main>
+<footer><div class="w"><span>Ticketo · Facturas de caja chica</span><a href="https://wa.me/528331740983">WhatsApp 833 174 0983</a></div></footer>
+<div class="mbar"><a class="btn" href="https://wa.me/528331740983?text=Hola%2C%20quiero%20probar%20la%20semana%20gratis%20de%20Ticketo.%0AEmpresa%3A%20%0AGiro%3A%20%0ACiudad%3A%20%0APersonas%20que%20mandan%20tickets%3A%20%0ATickets%20al%20mes%20%28aprox.%29%3A%20"><span>Probar gratis por WhatsApp</span></a></div>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script>
+(function(){
+var d=document,root=d.documentElement,h=d.querySelector("header");
+function sc(){h.classList.toggle("sc",scrollY>8)}sc();addEventListener("scroll",sc,{passive:true});
+
+function init(){
+ if(!root.classList.contains("gs")||!window.gsap||!window.ScrollTrigger){root.classList.remove("gs");return}
+ window.__tk=1;
+ var g=gsap,ST=ScrollTrigger,SPL=window.SplitText,$=function(s,c){return g.utils.toArray(s,c)};
+ g.registerPlugin(ST);if(SPL)g.registerPlugin(SPL);
+ ST.config({ignoreMobileResize:true});
+ var fine=matchMedia("(hover:hover) and (pointer:fine)").matches,lenis=null;
+
+ /* smooth scroll: solo con mouse/trackpad, nunca en touch */
+ if(fine&&window.Lenis){
+  lenis=new Lenis({lerp:.1,smoothWheel:true});
+  lenis.on("scroll",ST.update);
+  g.ticker.add(function(t){lenis.raf(t*1000)});g.ticker.lagSmoothing(0);
+  d.addEventListener("click",function(e){
+   var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+   var id=a.getAttribute("href"),t=(id==="#"||id==="#top")?0:d.querySelector(id);if(t===null)return;
+   e.preventDefault();lenis.scrollTo(t,{offset:t===0?0:-72,duration:1.3});
+  });
+ }
+
+ g.to(".prog",{scaleX:1,ease:"none",scrollTrigger:{start:0,end:"max",scrub:.3}});
+
+ /* hero: ticket -> factura + chat */
+ var S=d.querySelector(".scene");
+ if(S){
+  var q=g.utils.selector(S),tk=q(".tkt"),fc=q(".fac"),pop={opacity:1,y:0,scale:1,duration:.55,ease:"back.out(1.7)"};
+  g.set([tk,fc],{transformPerspective:900});
+  var tl=g.timeline({paused:true,repeat:-1,repeatDelay:.4,defaults:{ease:"power3.out"}});
+  tl.fromTo(q(".m1"),{opacity:0,y:14,scale:.94,transformOrigin:"0 100%"},pop,.35)
+    .fromTo(tk,{opacity:0,x:"-11em",y:"3em",scale:.32,rotation:-14,rotationY:0},{opacity:1,x:0,y:0,scale:1,rotation:-5,duration:1.1,ease:"expo.out"},.95)
+    .fromTo(q(".tkt .tl"),{opacity:0,x:-8},{opacity:1,x:0,stagger:.07,duration:.3},1.35)
+    .fromTo(q(".m2"),{opacity:0,y:14,scale:.94,transformOrigin:"0 100%"},pop,2.3)
+    .to(tk,{rotationY:90,rotation:-1,scale:.96,duration:.34,ease:"power2.in"},3.1)
+    .fromTo(fc,{opacity:1,rotationY:-90,rotation:-1,scale:.96},{rotationY:0,rotation:2,scale:1,duration:.8,ease:"back.out(1.3)"},3.44)
+    .fromTo(q(".fac .f-dl div, .fac .f-tot"),{opacity:0,y:6},{opacity:1,y:0,stagger:.06,duration:.35},3.6)
+    .fromTo(q(".fac .stamp"),{opacity:0,scale:1.9,rotation:-24},{opacity:1,scale:1,rotation:-12,duration:.5,ease:"back.out(2.2)"},4.15)
+    .fromTo(q(".fac .fl"),{opacity:0,y:10,scale:.8},{opacity:1,y:0,scale:1,stagger:.1,duration:.4,ease:"back.out(2)"},4.25)
+    .fromTo(q(".ty"),{opacity:0,scale:.8,transformOrigin:"100% 100%"},{opacity:1,scale:1,duration:.3},3.9)
+    .to(q(".ty"),{opacity:0,scale:.8,duration:.2},4.55)
+    .set(q(".ty"),{display:"none"},4.76)
+    .fromTo(q(".m3"),{opacity:0,y:14,scale:.94,transformOrigin:"100% 100%"},pop,4.78)
+    .fromTo(q(".m3 .fl"),{opacity:0,x:-6},{opacity:1,x:0,stagger:.1,duration:.3},5.05)
+    .fromTo(q(".toast"),{opacity:0,y:24,scale:.96},{opacity:1,y:0,scale:1,duration:.7,ease:"expo.out"},5.4)
+    .to(q(".m1,.m2,.m3,.toast,.fac"),{opacity:0,y:-8,duration:.5,stagger:.04,ease:"power2.in"},9.4);
+  tl.set(q(".ty"),{display:"inline-flex"},0);
+  var hs=ST.create({trigger:S,start:"top bottom",end:"bottom top",onToggle:function(s){s.isActive?tl.play():tl.pause()}});
+  if(hs.isActive)g.delayedCall(.35,function(){tl.play()});
+  g.to(S,{yPercent:-6,ease:"none",scrollTrigger:{trigger:S,start:"top 20%",end:"bottom top",scrub:true}});
+  if(fine){
+   var hero=d.querySelector(".hero"),lay=[[q(".ph")[0],-10,-8],[q(".doc")[0],18,14],[q(".toastw")[0],28,20]].map(function(l){return{x:g.quickTo(l[0],"x",{duration:.9,ease:"power3"}),y:g.quickTo(l[0],"y",{duration:.9,ease:"power3"}),kx:l[1],ky:l[2]}});
+   hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;lay.forEach(function(l){l.x(x*l.kx);l.y(y*l.ky)})});
+   hero.addEventListener("pointerleave",function(){lay.forEach(function(l){l.x(0);l.y(0)})});
+  }
+ }
+
+ /* flujo: escenas por paso */
+ var scenes=[
+  function(t,s,at){var v=g.utils.selector(s);
+   t.fromTo(v(".br"),{scale:1.5,opacity:0},{scale:1,opacity:1,duration:.7,stagger:.04},at)
+    .fromTo(v(".cam-v .rcp"),{scale:1.08,rotation:-9},{scale:1,rotation:-4,duration:1},at)
+    .fromTo(v(".flash"),{opacity:0},{opacity:.9,duration:.12,ease:"none"},at+.95)
+    .to(v(".flash"),{opacity:0,duration:.45,ease:"power1.out"},at+1.07)
+    .fromTo(v(".cm"),{opacity:0,y:"3em",scale:.9},{opacity:1,y:0,scale:1,duration:.7,ease:"back.out(1.6)"},at+1.25)},
+  function(t,s,at){var v=g.utils.selector(s);
+   t.fromTo(v(".fac"),{rotationY:-70,rotation:-6,transformPerspective:900},{rotationY:0,rotation:-2,duration:1},at)
+    .fromTo(v(".f-dl div,.f-tot"),{opacity:0,y:8},{opacity:1,y:0,stagger:.08,duration:.4},at+.3)
+    .fromTo(v(".stamp"),{opacity:0,scale:1.9,rotation:-24},{opacity:1,scale:1,rotation:-12,duration:.5,ease:"back.out(2)"},at+.9)
+    .fromTo(v(".fc"),{opacity:0,x:"-6em",scale:.8},{opacity:1,x:0,scale:1,stagger:.18,duration:.7,ease:"expo.out"},at+1.05)},
+  function(t,s,at){var v=g.utils.selector(s);
+   t.fromTo(v(".s3"),{x:0,y:0,rotation:0},{x:"2.4em",y:"-3.4em",rotation:3,duration:.9},at)
+    .fromTo(v(".s2"),{x:0,y:0,rotation:0},{x:"1.2em",y:"-1.7em",rotation:1.5,duration:.9},at)
+    .fromTo(v(".rw"),{opacity:0,x:-12},{opacity:1,x:0,stagger:.12,duration:.4},at+.35)
+    .fromTo(v(".pl2 .a"),{opacity:0},{opacity:1,stagger:.25,duration:.25},at+1.1)
+    .fromTo(v(".pl2 .b"),{opacity:1},{opacity:0,stagger:.25,duration:.25},at+1.1)},
+  function(t,s,at){var v=g.utils.selector(s);
+   t.fromTo(v(".mail-l li"),{opacity:0,y:12},{opacity:1,y:0,stagger:.14,duration:.45},at+.2)
+    .fromTo(v(".cal"),{opacity:0,y:"2em",rotation:16,scale:.8},{opacity:1,y:0,rotation:4,scale:1,duration:.8,ease:"back.out(1.6)"},at+.5)
+    .fromTo(v(".cal .ck"),{scale:0},{scale:1,duration:.4,ease:"back.out(2.5)"},at+1.1)
+    .fromTo(v(".sent"),{opacity:0,scale:.8,x:"1em"},{opacity:1,scale:1,x:0,duration:.5,ease:"back.out(2)"},at+1.25)}
+ ];
+ var sts=$(".st"),bars=$(".rail b"),labs=$(".rail li"),pin=d.querySelector(".story-pin"),mm=g.matchMedia();
+ mm.add({pin:"(min-height:620px)",flat:"(max-height:619px)"},function(c){
+  if(c.conditions.pin){
+   var t=g.timeline({defaults:{ease:"power2.out"},scrollTrigger:{trigger:pin,start:"top top",end:"+="+(sts.length*85)+"%",pin:true,scrub:.7,anticipatePin:1}}),seg=3;
+   sts.forEach(function(s,i){
+    var tx=s.querySelectorAll(".st-t > *"),cv=s.querySelector(".cv"),at=i*seg;
+    if(i){t.fromTo(s,{autoAlpha:0},{autoAlpha:1,duration:.2},at)
+      .fromTo(tx,{opacity:0,y:40},{opacity:1,y:0,stagger:.08,duration:.7},at)
+      .fromTo(cv,{opacity:0,y:60,scale:.94},{opacity:1,y:0,scale:1,duration:.9},at)}
+    scenes[i](t,s,i?at+.4:at+.1);
+    if(i<sts.length-1){t.to(tx,{opacity:0,y:-30,stagger:.05,duration:.6,ease:"power2.in"},at+2.3)
+      .to(cv,{opacity:0,y:-40,scale:.97,duration:.7,ease:"power2.in"},at+2.3)
+      .set(s,{autoAlpha:0},at+seg)}
+   });
+   t.to({},{duration:.8});
+   t.eventCallback("onUpdate",function(){var tm=t.time(),k=Math.min(sts.length-1,Math.floor(tm/seg));
+    bars.forEach(function(b,i){b.style.transform="scaleX("+g.utils.clamp(0,1,(tm-i*seg)/seg)+")"});
+    labs.forEach(function(l,i){l.classList.toggle("on",i===k)})});
+  }else{
+   sts.forEach(function(s,i){var t=g.timeline({scrollTrigger:{trigger:s,start:"top 75%",once:true}});scenes[i](t,s,0)});
+  }
+ });
+
+ /* reveals */
+ var rv=$(".rv").filter(function(e){return !(SPL&&e.tagName==="H2")});
+ g.set(rv,{opacity:0,y:28});
+ ST.batch(rv,{start:"top 90%",once:true,onEnter:function(b){g.to(b,{opacity:1,y:0,duration:1,ease:"expo.out",stagger:.09,overwrite:"auto"})}});
+ if(SPL)$("h2").forEach(function(el){
+  SPL.create(el,{type:"lines",mask:"lines",linesClass:"sl",autoSplit:true,onSplit:function(s){
+   return g.from(s.lines,{yPercent:110,duration:1.1,ease:"expo.out",stagger:.1,scrollTrigger:{trigger:el,start:"top 90%",once:true}})}});
+ });
+ g.from(".eq-wa .msg",{opacity:0,y:18,scale:.96,stagger:.2,duration:.6,ease:"back.out(1.5)",scrollTrigger:{trigger:".eq-wa",start:"top 70%",once:true}});
+ $(".eq-sh .sheet").forEach(function(s){g.from(s.querySelectorAll("tr:not(:first-child)"),{opacity:0,x:-10,stagger:.08,duration:.5,ease:"power2.out",scrollTrigger:{trigger:s,start:"top 82%",once:true}})});
+
+ /* microinteracciones con puntero fino */
+ if(fine){
+  $(".mag").forEach(function(b){
+   b.classList.add("m-on");
+   var s=b.firstElementChild,o={duration:.6,ease:"power3"},bx=g.quickTo(b,"x",o),by=g.quickTo(b,"y",o),sx=g.quickTo(s,"x",o),sy=g.quickTo(s,"y",o);
+   b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;bx(x*.28);by(y*.38);sx(x*.12);sy(y*.16)});
+   b.addEventListener("pointerleave",function(){bx(0);by(0);sx(0);sy(0)});
+  });
+  $(".pbox").forEach(function(p){
+   var s=p.querySelector(".spot"),o={duration:.7,ease:"power3"},sx=g.quickTo(s,"x",o),sy=g.quickTo(s,"y",o);
+   p.addEventListener("pointerenter",function(){g.to(s,{opacity:1,duration:.4})});
+   p.addEventListener("pointerleave",function(){g.to(s,{opacity:0,duration:.6})});
+   p.addEventListener("pointermove",function(e){var r=p.getBoundingClientRect();sx(e.clientX-r.left);sy(e.clientY-r.top)});
+  });
+ }
+ var rt;$("details").forEach(function(x){x.addEventListener("toggle",function(){clearTimeout(rt);rt=setTimeout(function(){ST.refresh()},60)})});
+}
+if(d.readyState==="loading")d.addEventListener("DOMContentLoaded",init);else init();
+})();
+</script>
+</body></html>
